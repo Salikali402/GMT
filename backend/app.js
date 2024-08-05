@@ -1,7 +1,7 @@
+require('dotenv').config()
 const express= require('express')
 const app= express()
-const port=8080
-const mongoose= require('mongoose')
+const port=process.env.PORT
 const Registration= require('./models/Registration')
 const Shared= require('./models/Shared')
 const cors= require('cors')
@@ -10,8 +10,7 @@ const userRouter= require('./routes/user')
 const requireAuth= require('./middlewares/requireAuth')
 const validator= require('validator')
 const jwt= require('jsonwebtoken')
-const bcrypt= require('bcrypt')
-require('dotenv').config()
+const bcrypt= require('bcryptjs')
 
 app.use(cors())
 // middleware
